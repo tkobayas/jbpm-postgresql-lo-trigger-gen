@@ -9,8 +9,6 @@ declare
 begin
     perform lo_unlink(cast(old.content as oid));
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -30,8 +28,6 @@ $BODY$
 declare
 begin
     perform lo_unlink(cast(old.content as oid));
-    return old;
-EXCEPTION WHEN others THEN
     return old;
 end;
 $BODY$
@@ -55,8 +51,6 @@ declare
 begin
     perform lo_unlink(cast(old.processinstancebytearray as oid));
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -76,8 +70,6 @@ $BODY$
 declare
 begin
     perform lo_unlink(cast(old.processinstancebytearray as oid));
-    return old;
-EXCEPTION WHEN others THEN
     return old;
 end;
 $BODY$
@@ -101,8 +93,6 @@ declare
 begin
     perform lo_unlink(cast(old.requestdata as oid));
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -122,8 +112,6 @@ $BODY$
 declare
 begin
     perform lo_unlink(cast(old.requestdata as oid));
-    return old;
-EXCEPTION WHEN others THEN
     return old;
 end;
 $BODY$
@@ -147,8 +135,6 @@ declare
 begin
     perform lo_unlink(cast(old.responsedata as oid));
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -168,8 +154,6 @@ $BODY$
 declare
 begin
     perform lo_unlink(cast(old.responsedata as oid));
-    return old;
-EXCEPTION WHEN others THEN
     return old;
 end;
 $BODY$
@@ -193,8 +177,6 @@ declare
 begin
     perform lo_unlink(cast(old.rulesbytearray as oid));
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -214,8 +196,6 @@ $BODY$
 declare
 begin
     perform lo_unlink(cast(old.rulesbytearray as oid));
-    return old;
-EXCEPTION WHEN others THEN
     return old;
 end;
 $BODY$
@@ -239,8 +219,6 @@ declare
 begin
     perform lo_unlink(cast(old.workitembytearray as oid));
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -260,8 +238,6 @@ $BODY$
 declare
 begin
     perform lo_unlink(cast(old.workitembytearray as oid));
-    return old;
-EXCEPTION WHEN others THEN
     return old;
 end;
 $BODY$
@@ -285,8 +261,6 @@ declare
 begin
     perform lo_unlink(cast(old.expression as oid));
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -306,8 +280,6 @@ $BODY$
 declare
 begin
     perform lo_unlink(cast(old.expression as oid));
-    return old;
-EXCEPTION WHEN others THEN
     return old;
 end;
 $BODY$
@@ -331,8 +303,6 @@ declare
 begin
     perform lo_unlink(cast(old.body as oid));
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -352,8 +322,6 @@ $BODY$
 declare
 begin
     perform lo_unlink(cast(old.body as oid));
-    return old;
-EXCEPTION WHEN others THEN
     return old;
 end;
 $BODY$
@@ -377,8 +345,6 @@ declare
 begin
     perform lo_unlink(cast(old.text as oid));
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -398,8 +364,6 @@ $BODY$
 declare
 begin
     perform lo_unlink(cast(old.text as oid));
-    return old;
-EXCEPTION WHEN others THEN
     return old;
 end;
 $BODY$
@@ -423,8 +387,6 @@ declare
 begin
     perform lo_unlink(cast(old.text as oid));
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -444,8 +406,6 @@ $BODY$
 declare
 begin
     perform lo_unlink(cast(old.text as oid));
-    return old;
-EXCEPTION WHEN others THEN
     return old;
 end;
 $BODY$
@@ -469,8 +429,6 @@ declare
 begin
     perform lo_unlink(cast(old.qexpression as oid));
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -490,8 +448,6 @@ $BODY$
 declare
 begin
     perform lo_unlink(cast(old.qexpression as oid));
-    return old;
-EXCEPTION WHEN others THEN
     return old;
 end;
 $BODY$
@@ -515,8 +471,6 @@ declare
 begin
     perform lo_unlink(cast(old.deploymentunit as oid));
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -536,8 +490,6 @@ $BODY$
 declare
 begin
     perform lo_unlink(cast(old.deploymentunit as oid));
-    return old;
-EXCEPTION WHEN others THEN
     return old;
 end;
 $BODY$

@@ -11,8 +11,6 @@ declare
 begin
     insert into jbpm_active_clob (loid) values (cast(new.expression as oid));
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -32,8 +30,6 @@ $BODY$
 declare
 begin
     insert into jbpm_active_clob (loid) values (cast(new.expression as oid));
-    return new;
-EXCEPTION WHEN others THEN
     return new;
 end;
 $BODY$
@@ -55,8 +51,6 @@ declare
 begin
     delete from jbpm_active_clob where loid = cast(old.expression as oid);
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -76,8 +70,6 @@ $BODY$
 declare
 begin
     delete from jbpm_active_clob where loid = cast(old.expression as oid);
-    return old;
-EXCEPTION WHEN others THEN
     return old;
 end;
 $BODY$
@@ -101,8 +93,6 @@ declare
 begin
     insert into jbpm_active_clob (loid) values (cast(new.body as oid));
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -122,8 +112,6 @@ $BODY$
 declare
 begin
     insert into jbpm_active_clob (loid) values (cast(new.body as oid));
-    return new;
-EXCEPTION WHEN others THEN
     return new;
 end;
 $BODY$
@@ -145,8 +133,6 @@ declare
 begin
     delete from jbpm_active_clob where loid = cast(old.body as oid);
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -166,8 +152,6 @@ $BODY$
 declare
 begin
     delete from jbpm_active_clob where loid = cast(old.body as oid);
-    return old;
-EXCEPTION WHEN others THEN
     return old;
 end;
 $BODY$
@@ -191,8 +175,6 @@ declare
 begin
     insert into jbpm_active_clob (loid) values (cast(new.text as oid));
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -212,8 +194,6 @@ $BODY$
 declare
 begin
     insert into jbpm_active_clob (loid) values (cast(new.text as oid));
-    return new;
-EXCEPTION WHEN others THEN
     return new;
 end;
 $BODY$
@@ -235,8 +215,6 @@ declare
 begin
     delete from jbpm_active_clob where loid = cast(old.text as oid);
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -256,8 +234,6 @@ $BODY$
 declare
 begin
     delete from jbpm_active_clob where loid = cast(old.text as oid);
-    return old;
-EXCEPTION WHEN others THEN
     return old;
 end;
 $BODY$
@@ -281,8 +257,6 @@ declare
 begin
     insert into jbpm_active_clob (loid) values (cast(new.text as oid));
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -302,8 +276,6 @@ $BODY$
 declare
 begin
     insert into jbpm_active_clob (loid) values (cast(new.text as oid));
-    return new;
-EXCEPTION WHEN others THEN
     return new;
 end;
 $BODY$
@@ -325,8 +297,6 @@ declare
 begin
     delete from jbpm_active_clob where loid = cast(old.text as oid);
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -346,8 +316,6 @@ $BODY$
 declare
 begin
     delete from jbpm_active_clob where loid = cast(old.text as oid);
-    return old;
-EXCEPTION WHEN others THEN
     return old;
 end;
 $BODY$
@@ -371,8 +339,6 @@ declare
 begin
     insert into jbpm_active_clob (loid) values (cast(new.qexpression as oid));
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -392,8 +358,6 @@ $BODY$
 declare
 begin
     insert into jbpm_active_clob (loid) values (cast(new.qexpression as oid));
-    return new;
-EXCEPTION WHEN others THEN
     return new;
 end;
 $BODY$
@@ -415,8 +379,6 @@ declare
 begin
     delete from jbpm_active_clob where loid = cast(old.qexpression as oid);
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -436,8 +398,6 @@ $BODY$
 declare
 begin
     delete from jbpm_active_clob where loid = cast(old.qexpression as oid);
-    return old;
-EXCEPTION WHEN others THEN
     return old;
 end;
 $BODY$
@@ -461,8 +421,6 @@ declare
 begin
     insert into jbpm_active_clob (loid) values (cast(new.deploymentunit as oid));
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -482,8 +440,6 @@ $BODY$
 declare
 begin
     insert into jbpm_active_clob (loid) values (cast(new.deploymentunit as oid));
-    return new;
-EXCEPTION WHEN others THEN
     return new;
 end;
 $BODY$
@@ -505,8 +461,6 @@ declare
 begin
     delete from jbpm_active_clob where loid = cast(old.deploymentunit as oid);
     return new;
-EXCEPTION WHEN others THEN
-    return new;
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
@@ -526,8 +480,6 @@ $BODY$
 declare
 begin
     delete from jbpm_active_clob where loid = cast(old.deploymentunit as oid);
-    return old;
-EXCEPTION WHEN others THEN
     return old;
 end;
 $BODY$

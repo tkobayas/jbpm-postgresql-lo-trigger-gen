@@ -90,8 +90,6 @@ public class PostgreSQLLOCreateTriggerGen {
                 "begin\n" +
                 "    insert into jbpm_active_clob (loid) values (cast(new." + column + " as oid));\n" +
                 "    return new;\n" +
-                "EXCEPTION WHEN others THEN\n" +
-                "    return new;\n" +
                 "end;\n" +
                 "$BODY$\n" +
                 "  LANGUAGE plpgsql VOLATILE;\n" +
@@ -117,8 +115,6 @@ public class PostgreSQLLOCreateTriggerGen {
                 "declare\n" +
                 "begin\n" +
                 "    insert into jbpm_active_clob (loid) values (cast(new." + column + " as oid));\n" +
-                "    return new;\n" +
-                "EXCEPTION WHEN others THEN\n" +
                 "    return new;\n" +
                 "end;\n" +
                 "$BODY$\n" +
@@ -147,8 +143,6 @@ public class PostgreSQLLOCreateTriggerGen {
                 "begin\n" +
                 "    delete from jbpm_active_clob where loid = cast(old." + column + " as oid);\n" +
                 "    return new;\n" +
-                "EXCEPTION WHEN others THEN\n" +
-                "    return new;\n" +
                 "end;\n" +
                 "$BODY$\n" +
                 "  LANGUAGE plpgsql VOLATILE;\n" +
@@ -175,8 +169,6 @@ public class PostgreSQLLOCreateTriggerGen {
                 "declare\n" +
                 "begin\n" +
                 "    delete from jbpm_active_clob where loid = cast(old." + column + " as oid);\n" +
-                "    return old;\n" +
-                "EXCEPTION WHEN others THEN\n" +
                 "    return old;\n" +
                 "end;\n" +
                 "$BODY$\n" +
@@ -211,8 +203,6 @@ public class PostgreSQLLOCreateTriggerGen {
                 "begin\n" +
                 "    perform lo_unlink(cast(old." + column + " as oid));\n" +
                 "    return new;\n" +
-                "EXCEPTION WHEN others THEN\n" +
-                "    return new;\n" +
                 "end;\n" +
                 "$BODY$\n" +
                 "  LANGUAGE plpgsql VOLATILE;\n" +
@@ -245,8 +235,6 @@ public class PostgreSQLLOCreateTriggerGen {
                 "declare\n" +
                 "begin\n" +
                 "    perform lo_unlink(cast(old." + column + " as oid));\n" +
-                "    return old;\n" +
-                "EXCEPTION WHEN others THEN\n" +
                 "    return old;\n" +
                 "end;\n" +
                 "$BODY$\n" +
