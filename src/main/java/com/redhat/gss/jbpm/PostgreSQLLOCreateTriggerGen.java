@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 
 public class PostgreSQLLOCreateTriggerGen {
 
-    private static final String OUTPUT_FILE = "jbpm_active_clob_create_trigger.txt";
+    private static final String OUTPUT_FILE = "jbpm_active_clob_create_trigger.sql";
 
     StringBuilder sb = new StringBuilder();
 
@@ -18,6 +18,8 @@ public class PostgreSQLLOCreateTriggerGen {
     }
 
     private void generateScript() throws Exception {
+        
+        sb.append( "create table jbpm_active_clob ( loid oid );\n\n" );
 
         generatePerColumn( "booleanexpression", "expression" );
         generatePerColumn( "email_header", "body" );
@@ -43,7 +45,7 @@ public class PostgreSQLLOCreateTriggerGen {
 
     private void generateInsertTrigger( String table, String column ) {
         String insertTrigger =
-                "CREATE OR REPLACE FUNCTION " + table + "_clob_insert()\n" +
+                "CREATE OR REPLACE FUNCTION " + table + "_clob_before_insert()\n" +
                 "  RETURNS \"trigger\" AS\n" +
                 "$BODY$\n" +
                 "declare\n" +
@@ -54,46 +56,71 @@ public class PostgreSQLLOCreateTriggerGen {
                 "$BODY$\n" +
                 "  LANGUAGE plpgsql VOLATILE;\n" +
                 "\n" +
-                "ALTER FUNCTION " + table + "_clob_insert() OWNER TO postgres;\n" +
+                "ALTER FUNCTION " + table + "_clob_before_insert() OWNER TO postgres;\n" +
                 "\n" +
-                "CREATE TRIGGER " + table + "_clob_insert_trigger\n" +
-                "  AFTER INSERT\n" +
+                "CREATE TRIGGER " + table + "_clob_before_insert_trigger\n" +
+                "  BEFORE INSERT\n" +
                 "  ON " + table + "\n" +
                 "  FOR EACH ROW\n" +
-                "  EXECUTE PROCEDURE " + table + "_clob_insert();\n" +
+                "  EXECUTE PROCEDURE " + table + "_clob_before_insert();\n" +
                 "\n";
 
         sb.append( insertTrigger );
     }
 
     private void generateUpdateTrigger( String table, String column ) {
-        String updateTrigger =
-                "CREATE OR REPLACE FUNCTION " + table + "_clob_update()\n" +
+        String beforeUpdateTrigger =
+                "CREATE OR REPLACE FUNCTION " + table + "_clob_before_update()\n" +
                 "  RETURNS \"trigger\" AS\n" +
                 "$BODY$\n" +
                 "declare\n" +
                 "begin\n" +
-                "    update jbpm_active_clob set loid = cast(new." + column + " as oid) where loid = cast(old." + column + " as oid);\n" +
+                "    insert into jbpm_active_clob (loid) values (cast(new." + column + " as oid));\n" +
                 "    return new;\n" +
                 "end;\n" +
                 "$BODY$\n" +
                 "  LANGUAGE plpgsql VOLATILE;\n" +
                 "\n" +
-                "ALTER FUNCTION " + table + "_clob_update() OWNER TO postgres;\n" +
+                "ALTER FUNCTION " + table + "_clob_before_update() OWNER TO postgres;\n" +
                 "\n" +
-                "CREATE TRIGGER " + table + "_clob_update_trigger\n" +
+                "CREATE TRIGGER " + table + "_clob_before_update_trigger\n" +
+                "  BEFORE UPDATE\n" +
+                "  ON " + table + "\n" +
+                "  FOR EACH ROW\n" +
+                "  WHEN (old." + column + " IS DISTINCT FROM new." + column + ")\n" +
+                "  EXECUTE PROCEDURE " + table + "_clob_before_update();\n" +
+                "\n";
+
+        sb.append( beforeUpdateTrigger );
+        
+        String afterUpdateTrigger =
+                "CREATE OR REPLACE FUNCTION " + table + "_clob_after_update()\n" +
+                "  RETURNS \"trigger\" AS\n" +
+                "$BODY$\n" +
+                "declare\n" +
+                "begin\n" +
+                "    delete from jbpm_active_clob where loid = cast(old." + column + " as oid);\n" +
+                "    return new;\n" +
+                "end;\n" +
+                "$BODY$\n" +
+                "  LANGUAGE plpgsql VOLATILE;\n" +
+                "\n" +
+                "ALTER FUNCTION " + table + "_clob_after_update() OWNER TO postgres;\n" +
+                "\n" +
+                "CREATE TRIGGER " + table + "_clob_after_update_trigger\n" +
                 "  AFTER UPDATE\n" +
                 "  ON " + table + "\n" +
                 "  FOR EACH ROW\n" +
-                "  EXECUTE PROCEDURE " + table + "_clob_update();\n" +
+                "  WHEN (old." + column + " IS DISTINCT FROM new." + column + ")\n" +
+                "  EXECUTE PROCEDURE " + table + "_clob_after_update();\n" +
                 "\n";
 
-        sb.append( updateTrigger );
+        sb.append( afterUpdateTrigger );
     }
 
     private void generateDeleteTrigger( String table, String column ) {
         String deleteTrigger =
-                "CREATE OR REPLACE FUNCTION " + table + "_clob_delete()\n" +
+                "CREATE OR REPLACE FUNCTION " + table + "_clob_after_delete()\n" +
                 "  RETURNS \"trigger\" AS\n" +
                 "$BODY$\n" +
                 "declare\n" +
@@ -104,13 +131,13 @@ public class PostgreSQLLOCreateTriggerGen {
                 "$BODY$\n" +
                 "  LANGUAGE plpgsql VOLATILE;\n" +
                 "\n" +
-                "ALTER FUNCTION " + table + "_clob_delete() OWNER TO postgres;\n" +
+                "ALTER FUNCTION " + table + "_clob_after_delete() OWNER TO postgres;\n" +
                 "\n" +
-                "CREATE TRIGGER " + table + "_clob_delete_trigger\n" +
+                "CREATE TRIGGER " + table + "_clob_after_delete_trigger\n" +
                 "  AFTER DELETE\n" +
                 "  ON " + table + "\n" +
                 "  FOR EACH ROW\n" +
-                "  EXECUTE PROCEDURE " + table + "_clob_delete();\n" +
+                "  EXECUTE PROCEDURE " + table + "_clob_after_delete();\n" +
                 "\n";
 
         sb.append( deleteTrigger );

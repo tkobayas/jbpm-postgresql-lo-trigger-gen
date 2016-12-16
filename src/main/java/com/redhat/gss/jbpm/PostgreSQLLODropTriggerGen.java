@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 
 public class PostgreSQLLODropTriggerGen {
 
-    private static final String OUTPUT_FILE = "jbpm_active_clob_drop_trigger.txt";
+    private static final String OUTPUT_FILE = "jbpm_active_clob_drop_trigger.sql";
 
     StringBuilder sb = new StringBuilder();
 
@@ -43,26 +43,33 @@ public class PostgreSQLLODropTriggerGen {
 
     private void generateInsertTrigger( String table, String column ) {
         String insertTrigger =
-                "DROP TRIGGER " + table + "_clob_insert_trigger ON " + table + ";\n" +
-                "DROP FUNCTION " + table + "_clob_insert();\n" +
+                "DROP TRIGGER " + table + "_clob_before_insert_trigger ON " + table + ";\n" +
+                "DROP FUNCTION " + table + "_clob_before_insert();\n" +
                 "\n";
 
         sb.append( insertTrigger );
     }
 
     private void generateUpdateTrigger( String table, String column ) {
-        String updateTrigger =
-                "DROP TRIGGER " + table + "_clob_update_trigger ON " + table + ";\n" +
-                "DROP FUNCTION " + table + "_clob_update();\n" +
+        String beforeUpdateTrigger =
+                "DROP TRIGGER " + table + "_clob_before_update_trigger ON " + table + ";\n" +
+                "DROP FUNCTION " + table + "_clob_before_update();\n" +
                 "\n";
 
-        sb.append( updateTrigger );
+        sb.append( beforeUpdateTrigger );
+        
+        String afterUpdateTrigger =
+                "DROP TRIGGER " + table + "_clob_after_update_trigger ON " + table + ";\n" +
+                "DROP FUNCTION " + table + "_clob_after_update();\n" +
+                "\n";
+
+        sb.append( afterUpdateTrigger );
     }
 
     private void generateDeleteTrigger( String table, String column ) {
         String deleteTrigger =
-                "DROP TRIGGER " + table + "_clob_delete_trigger ON " + table + ";\n" +
-                "DROP FUNCTION " + table + "_clob_delete();\n" +
+                "DROP TRIGGER " + table + "_clob_after_delete_trigger ON " + table + ";\n" +
+                "DROP FUNCTION " + table + "_clob_after_delete();\n" +
                 "\n";
 
         sb.append( deleteTrigger );
