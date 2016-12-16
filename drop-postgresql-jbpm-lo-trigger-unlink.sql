@@ -1,0 +1,96 @@
+-- content.content
+
+DROP TRIGGER content_content_unlink_after_update_trigger ON content;
+DROP FUNCTION content_content_unlink_after_update();
+
+DROP TRIGGER content_content_unlink_after_delete_trigger ON content;
+DROP FUNCTION content_content_unlink_after_delete();
+
+-- processinstanceinfo.processinstancebytearray
+
+DROP TRIGGER processinstanceinfo_array_unlink_after_update_trigger ON processinstanceinfo;
+DROP FUNCTION processinstanceinfo_array_unlink_after_update();
+
+DROP TRIGGER processinstanceinfo_array_unlink_after_delete_trigger ON processinstanceinfo;
+DROP FUNCTION processinstanceinfo_array_unlink_after_delete();
+
+-- requestinfo.requestdata
+
+DROP TRIGGER requestinfo_requestdata_unlink_after_update_trigger ON requestinfo;
+DROP FUNCTION requestinfo_requestdata_unlink_after_update();
+
+DROP TRIGGER requestinfo_requestdata_unlink_after_delete_trigger ON requestinfo;
+DROP FUNCTION requestinfo_requestdata_unlink_after_delete();
+
+-- requestinfo.responsedata
+
+DROP TRIGGER requestinfo_responsedata_unlink_after_update_trigger ON requestinfo;
+DROP FUNCTION requestinfo_responsedata_unlink_after_update();
+
+DROP TRIGGER requestinfo_responsedata_unlink_after_delete_trigger ON requestinfo;
+DROP FUNCTION requestinfo_responsedata_unlink_after_delete();
+
+-- sessioninfo.rulesbytearray
+
+DROP TRIGGER sessioninfo_rulesbytearray_unlink_after_update_trigger ON sessioninfo;
+DROP FUNCTION sessioninfo_rulesbytearray_unlink_after_update();
+
+DROP TRIGGER sessioninfo_rulesbytearray_unlink_after_delete_trigger ON sessioninfo;
+DROP FUNCTION sessioninfo_rulesbytearray_unlink_after_delete();
+
+-- workiteminfo.workitembytearray
+
+DROP TRIGGER workiteminfo_workitembytearray_unlink_after_update_trigger ON workiteminfo;
+DROP FUNCTION workiteminfo_workitembytearray_unlink_after_update();
+
+DROP TRIGGER workiteminfo_workitembytearray_unlink_after_delete_trigger ON workiteminfo;
+DROP FUNCTION workiteminfo_workitembytearray_unlink_after_delete();
+
+-- booleanexpression.expression
+
+DROP TRIGGER booleanexpression_expression_unlink_after_update_trigger ON booleanexpression;
+DROP FUNCTION booleanexpression_expression_unlink_after_update();
+
+DROP TRIGGER booleanexpression_expression_unlink_after_delete_trigger ON booleanexpression;
+DROP FUNCTION booleanexpression_expression_unlink_after_delete();
+
+-- email_header.body
+
+DROP TRIGGER email_header_body_unlink_after_update_trigger ON email_header;
+DROP FUNCTION email_header_body_unlink_after_update();
+
+DROP TRIGGER email_header_body_unlink_after_delete_trigger ON email_header;
+DROP FUNCTION email_header_body_unlink_after_delete();
+
+-- i18ntext.text
+
+DROP TRIGGER i18ntext_text_unlink_after_update_trigger ON i18ntext;
+DROP FUNCTION i18ntext_text_unlink_after_update();
+
+DROP TRIGGER i18ntext_text_unlink_after_delete_trigger ON i18ntext;
+DROP FUNCTION i18ntext_text_unlink_after_delete();
+
+-- task_comment.text
+
+DROP TRIGGER task_comment_text_unlink_after_update_trigger ON task_comment;
+DROP FUNCTION task_comment_text_unlink_after_update();
+
+DROP TRIGGER task_comment_text_unlink_after_delete_trigger ON task_comment;
+DROP FUNCTION task_comment_text_unlink_after_delete();
+
+-- querydefinitionstore.qexpression
+
+DROP TRIGGER querydefinitionstore_qexpression_unlink_after_update_trigger ON querydefinitionstore;
+DROP FUNCTION querydefinitionstore_qexpression_unlink_after_update();
+
+DROP TRIGGER querydefinitionstore_qexpression_unlink_after_delete_trigger ON querydefinitionstore;
+DROP FUNCTION querydefinitionstore_qexpression_unlink_after_delete();
+
+-- deploymentstore.deploymentunit
+
+DROP TRIGGER deploymentstore_deploymentunit_unlink_after_update_trigger ON deploymentstore;
+DROP FUNCTION deploymentstore_deploymentunit_unlink_after_update();
+
+DROP TRIGGER deploymentstore_deploymentunit_unlink_after_delete_trigger ON deploymentstore;
+DROP FUNCTION deploymentstore_deploymentunit_unlink_after_delete();
+

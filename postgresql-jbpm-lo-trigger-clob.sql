@@ -1,286 +1,8 @@
 create table jbpm_active_clob ( loid oid );
 
--- BLOB triggers
+-- Triggers to protect CLOB from vacuumlo
 
--- content.content
-
-CREATE OR REPLACE FUNCTION content_content_clob_after_update()
-  RETURNS "trigger" AS
-$BODY$
-declare
-begin
-    perform lo_unlink(cast(old.content as oid));
-    return new;
-EXCEPTION WHEN others THEN
-    return new;
-end;
-$BODY$
-  LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION content_content_clob_after_update() OWNER TO postgres;
-
-CREATE TRIGGER content_content_clob_after_update_trigger
-  AFTER UPDATE
-  ON content
-  FOR EACH ROW
-  WHEN (old.content IS NOT NULL AND old.content IS DISTINCT FROM new.content)
-  EXECUTE PROCEDURE content_content_clob_after_update();
-
-CREATE OR REPLACE FUNCTION content_content_clob_after_delete()
-  RETURNS "trigger" AS
-$BODY$
-declare
-begin
-    perform lo_unlink(cast(old.content as oid));
-    return old;
-EXCEPTION WHEN others THEN
-    return old;
-end;
-$BODY$
-  LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION content_content_clob_after_delete() OWNER TO postgres;
-
-CREATE TRIGGER content_content_clob_after_delete_trigger
-  AFTER DELETE
-  ON content
-  FOR EACH ROW
-  WHEN (old.content IS NOT NULL)
-  EXECUTE PROCEDURE content_content_clob_after_delete();
-
--- processinstanceinfo.processinstancebytearray
-
-CREATE OR REPLACE FUNCTION processinstanceinfo_processinstancebytearray_clob_after_update()
-  RETURNS "trigger" AS
-$BODY$
-declare
-begin
-    perform lo_unlink(cast(old.processinstancebytearray as oid));
-    return new;
-EXCEPTION WHEN others THEN
-    return new;
-end;
-$BODY$
-  LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION processinstanceinfo_processinstancebytearray_clob_after_update() OWNER TO postgres;
-
-CREATE TRIGGER processinstanceinfo_processinstancebytearray_clob_after_update_trigger
-  AFTER UPDATE
-  ON processinstanceinfo
-  FOR EACH ROW
-  WHEN (old.processinstancebytearray IS NOT NULL AND old.processinstancebytearray IS DISTINCT FROM new.processinstancebytearray)
-  EXECUTE PROCEDURE processinstanceinfo_processinstancebytearray_clob_after_update();
-
-CREATE OR REPLACE FUNCTION processinstanceinfo_processinstancebytearray_clob_after_delete()
-  RETURNS "trigger" AS
-$BODY$
-declare
-begin
-    perform lo_unlink(cast(old.processinstancebytearray as oid));
-    return old;
-EXCEPTION WHEN others THEN
-    return old;
-end;
-$BODY$
-  LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION processinstanceinfo_processinstancebytearray_clob_after_delete() OWNER TO postgres;
-
-CREATE TRIGGER processinstanceinfo_processinstancebytearray_clob_after_delete_trigger
-  AFTER DELETE
-  ON processinstanceinfo
-  FOR EACH ROW
-  WHEN (old.processinstancebytearray IS NOT NULL)
-  EXECUTE PROCEDURE processinstanceinfo_processinstancebytearray_clob_after_delete();
-
--- requestinfo.requestdata
-
-CREATE OR REPLACE FUNCTION requestinfo_requestdata_clob_after_update()
-  RETURNS "trigger" AS
-$BODY$
-declare
-begin
-    perform lo_unlink(cast(old.requestdata as oid));
-    return new;
-EXCEPTION WHEN others THEN
-    return new;
-end;
-$BODY$
-  LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION requestinfo_requestdata_clob_after_update() OWNER TO postgres;
-
-CREATE TRIGGER requestinfo_requestdata_clob_after_update_trigger
-  AFTER UPDATE
-  ON requestinfo
-  FOR EACH ROW
-  WHEN (old.requestdata IS NOT NULL AND old.requestdata IS DISTINCT FROM new.requestdata)
-  EXECUTE PROCEDURE requestinfo_requestdata_clob_after_update();
-
-CREATE OR REPLACE FUNCTION requestinfo_requestdata_clob_after_delete()
-  RETURNS "trigger" AS
-$BODY$
-declare
-begin
-    perform lo_unlink(cast(old.requestdata as oid));
-    return old;
-EXCEPTION WHEN others THEN
-    return old;
-end;
-$BODY$
-  LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION requestinfo_requestdata_clob_after_delete() OWNER TO postgres;
-
-CREATE TRIGGER requestinfo_requestdata_clob_after_delete_trigger
-  AFTER DELETE
-  ON requestinfo
-  FOR EACH ROW
-  WHEN (old.requestdata IS NOT NULL)
-  EXECUTE PROCEDURE requestinfo_requestdata_clob_after_delete();
-
--- requestinfo.responsedata
-
-CREATE OR REPLACE FUNCTION requestinfo_responsedata_clob_after_update()
-  RETURNS "trigger" AS
-$BODY$
-declare
-begin
-    perform lo_unlink(cast(old.responsedata as oid));
-    return new;
-EXCEPTION WHEN others THEN
-    return new;
-end;
-$BODY$
-  LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION requestinfo_responsedata_clob_after_update() OWNER TO postgres;
-
-CREATE TRIGGER requestinfo_responsedata_clob_after_update_trigger
-  AFTER UPDATE
-  ON requestinfo
-  FOR EACH ROW
-  WHEN (old.responsedata IS NOT NULL AND old.responsedata IS DISTINCT FROM new.responsedata)
-  EXECUTE PROCEDURE requestinfo_responsedata_clob_after_update();
-
-CREATE OR REPLACE FUNCTION requestinfo_responsedata_clob_after_delete()
-  RETURNS "trigger" AS
-$BODY$
-declare
-begin
-    perform lo_unlink(cast(old.responsedata as oid));
-    return old;
-EXCEPTION WHEN others THEN
-    return old;
-end;
-$BODY$
-  LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION requestinfo_responsedata_clob_after_delete() OWNER TO postgres;
-
-CREATE TRIGGER requestinfo_responsedata_clob_after_delete_trigger
-  AFTER DELETE
-  ON requestinfo
-  FOR EACH ROW
-  WHEN (old.responsedata IS NOT NULL)
-  EXECUTE PROCEDURE requestinfo_responsedata_clob_after_delete();
-
--- sessioninfo.rulesbytearray
-
-CREATE OR REPLACE FUNCTION sessioninfo_rulesbytearray_clob_after_update()
-  RETURNS "trigger" AS
-$BODY$
-declare
-begin
-    perform lo_unlink(cast(old.rulesbytearray as oid));
-    return new;
-EXCEPTION WHEN others THEN
-    return new;
-end;
-$BODY$
-  LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION sessioninfo_rulesbytearray_clob_after_update() OWNER TO postgres;
-
-CREATE TRIGGER sessioninfo_rulesbytearray_clob_after_update_trigger
-  AFTER UPDATE
-  ON sessioninfo
-  FOR EACH ROW
-  WHEN (old.rulesbytearray IS NOT NULL AND old.rulesbytearray IS DISTINCT FROM new.rulesbytearray)
-  EXECUTE PROCEDURE sessioninfo_rulesbytearray_clob_after_update();
-
-CREATE OR REPLACE FUNCTION sessioninfo_rulesbytearray_clob_after_delete()
-  RETURNS "trigger" AS
-$BODY$
-declare
-begin
-    perform lo_unlink(cast(old.rulesbytearray as oid));
-    return old;
-EXCEPTION WHEN others THEN
-    return old;
-end;
-$BODY$
-  LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION sessioninfo_rulesbytearray_clob_after_delete() OWNER TO postgres;
-
-CREATE TRIGGER sessioninfo_rulesbytearray_clob_after_delete_trigger
-  AFTER DELETE
-  ON sessioninfo
-  FOR EACH ROW
-  WHEN (old.rulesbytearray IS NOT NULL)
-  EXECUTE PROCEDURE sessioninfo_rulesbytearray_clob_after_delete();
-
--- workiteminfo.workitembytearray
-
-CREATE OR REPLACE FUNCTION workiteminfo_workitembytearray_clob_after_update()
-  RETURNS "trigger" AS
-$BODY$
-declare
-begin
-    perform lo_unlink(cast(old.workitembytearray as oid));
-    return new;
-EXCEPTION WHEN others THEN
-    return new;
-end;
-$BODY$
-  LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION workiteminfo_workitembytearray_clob_after_update() OWNER TO postgres;
-
-CREATE TRIGGER workiteminfo_workitembytearray_clob_after_update_trigger
-  AFTER UPDATE
-  ON workiteminfo
-  FOR EACH ROW
-  WHEN (old.workitembytearray IS NOT NULL AND old.workitembytearray IS DISTINCT FROM new.workitembytearray)
-  EXECUTE PROCEDURE workiteminfo_workitembytearray_clob_after_update();
-
-CREATE OR REPLACE FUNCTION workiteminfo_workitembytearray_clob_after_delete()
-  RETURNS "trigger" AS
-$BODY$
-declare
-begin
-    perform lo_unlink(cast(old.workitembytearray as oid));
-    return old;
-EXCEPTION WHEN others THEN
-    return old;
-end;
-$BODY$
-  LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION workiteminfo_workitembytearray_clob_after_delete() OWNER TO postgres;
-
-CREATE TRIGGER workiteminfo_workitembytearray_clob_after_delete_trigger
-  AFTER DELETE
-  ON workiteminfo
-  FOR EACH ROW
-  WHEN (old.workitembytearray IS NOT NULL)
-  EXECUTE PROCEDURE workiteminfo_workitembytearray_clob_after_delete();
-
--- CLOB triggers
-
--- booleanexpression.expression
+-- booleanexpression.expression for CLOB
 
 CREATE OR REPLACE FUNCTION booleanexpression_expression_clob_before_insert()
   RETURNS "trigger" AS
@@ -332,7 +54,6 @@ $BODY$
 declare
 begin
     delete from jbpm_active_clob where loid = cast(old.expression as oid);
-    perform lo_unlink(cast(old.expression as oid));
     return new;
 EXCEPTION WHEN others THEN
     return new;
@@ -355,7 +76,6 @@ $BODY$
 declare
 begin
     delete from jbpm_active_clob where loid = cast(old.expression as oid);
-    perform lo_unlink(cast(old.expression as oid));
     return old;
 EXCEPTION WHEN others THEN
     return old;
@@ -372,7 +92,7 @@ CREATE TRIGGER booleanexpression_expression_clob_after_delete_trigger
   WHEN (old.expression IS NOT NULL)
   EXECUTE PROCEDURE booleanexpression_expression_clob_after_delete();
 
--- email_header.body
+-- email_header.body for CLOB
 
 CREATE OR REPLACE FUNCTION email_header_body_clob_before_insert()
   RETURNS "trigger" AS
@@ -424,7 +144,6 @@ $BODY$
 declare
 begin
     delete from jbpm_active_clob where loid = cast(old.body as oid);
-    perform lo_unlink(cast(old.body as oid));
     return new;
 EXCEPTION WHEN others THEN
     return new;
@@ -447,7 +166,6 @@ $BODY$
 declare
 begin
     delete from jbpm_active_clob where loid = cast(old.body as oid);
-    perform lo_unlink(cast(old.body as oid));
     return old;
 EXCEPTION WHEN others THEN
     return old;
@@ -464,7 +182,7 @@ CREATE TRIGGER email_header_body_clob_after_delete_trigger
   WHEN (old.body IS NOT NULL)
   EXECUTE PROCEDURE email_header_body_clob_after_delete();
 
--- i18ntext.text
+-- i18ntext.text for CLOB
 
 CREATE OR REPLACE FUNCTION i18ntext_text_clob_before_insert()
   RETURNS "trigger" AS
@@ -516,7 +234,6 @@ $BODY$
 declare
 begin
     delete from jbpm_active_clob where loid = cast(old.text as oid);
-    perform lo_unlink(cast(old.text as oid));
     return new;
 EXCEPTION WHEN others THEN
     return new;
@@ -539,7 +256,6 @@ $BODY$
 declare
 begin
     delete from jbpm_active_clob where loid = cast(old.text as oid);
-    perform lo_unlink(cast(old.text as oid));
     return old;
 EXCEPTION WHEN others THEN
     return old;
@@ -556,7 +272,7 @@ CREATE TRIGGER i18ntext_text_clob_after_delete_trigger
   WHEN (old.text IS NOT NULL)
   EXECUTE PROCEDURE i18ntext_text_clob_after_delete();
 
--- task_comment.text
+-- task_comment.text for CLOB
 
 CREATE OR REPLACE FUNCTION task_comment_text_clob_before_insert()
   RETURNS "trigger" AS
@@ -608,7 +324,6 @@ $BODY$
 declare
 begin
     delete from jbpm_active_clob where loid = cast(old.text as oid);
-    perform lo_unlink(cast(old.text as oid));
     return new;
 EXCEPTION WHEN others THEN
     return new;
@@ -631,7 +346,6 @@ $BODY$
 declare
 begin
     delete from jbpm_active_clob where loid = cast(old.text as oid);
-    perform lo_unlink(cast(old.text as oid));
     return old;
 EXCEPTION WHEN others THEN
     return old;
@@ -648,7 +362,7 @@ CREATE TRIGGER task_comment_text_clob_after_delete_trigger
   WHEN (old.text IS NOT NULL)
   EXECUTE PROCEDURE task_comment_text_clob_after_delete();
 
--- querydefinitionstore.qexpression
+-- querydefinitionstore.qexpression for CLOB
 
 CREATE OR REPLACE FUNCTION querydefinitionstore_qexpression_clob_before_insert()
   RETURNS "trigger" AS
@@ -700,7 +414,6 @@ $BODY$
 declare
 begin
     delete from jbpm_active_clob where loid = cast(old.qexpression as oid);
-    perform lo_unlink(cast(old.qexpression as oid));
     return new;
 EXCEPTION WHEN others THEN
     return new;
@@ -723,7 +436,6 @@ $BODY$
 declare
 begin
     delete from jbpm_active_clob where loid = cast(old.qexpression as oid);
-    perform lo_unlink(cast(old.qexpression as oid));
     return old;
 EXCEPTION WHEN others THEN
     return old;
@@ -740,7 +452,7 @@ CREATE TRIGGER querydefinitionstore_qexpression_clob_after_delete_trigger
   WHEN (old.qexpression IS NOT NULL)
   EXECUTE PROCEDURE querydefinitionstore_qexpression_clob_after_delete();
 
--- deploymentstore.deploymentunit
+-- deploymentstore.deploymentunit for CLOB
 
 CREATE OR REPLACE FUNCTION deploymentstore_deploymentunit_clob_before_insert()
   RETURNS "trigger" AS
@@ -792,7 +504,6 @@ $BODY$
 declare
 begin
     delete from jbpm_active_clob where loid = cast(old.deploymentunit as oid);
-    perform lo_unlink(cast(old.deploymentunit as oid));
     return new;
 EXCEPTION WHEN others THEN
     return new;
@@ -815,7 +526,6 @@ $BODY$
 declare
 begin
     delete from jbpm_active_clob where loid = cast(old.deploymentunit as oid);
-    perform lo_unlink(cast(old.deploymentunit as oid));
     return old;
 EXCEPTION WHEN others THEN
     return old;
