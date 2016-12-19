@@ -94,8 +94,6 @@ public class PostgreSQLLOCreateTriggerGen {
                 "$BODY$\n" +
                 "  LANGUAGE plpgsql VOLATILE;\n" +
                 "\n" +
-                "ALTER FUNCTION " + table + "_" + column + "_clob_before_insert() OWNER TO postgres;\n" +
-                "\n" +
                 "CREATE TRIGGER " + table + "_" + column + "_clob_before_insert_trigger\n" +
                 "  BEFORE INSERT\n" +
                 "  ON " + table + "\n" +
@@ -119,8 +117,6 @@ public class PostgreSQLLOCreateTriggerGen {
                 "end;\n" +
                 "$BODY$\n" +
                 "  LANGUAGE plpgsql VOLATILE;\n" +
-                "\n" +
-                "ALTER FUNCTION " + table + "_" + column + "_clob_before_update() OWNER TO postgres;\n" +
                 "\n" +
                 "CREATE TRIGGER " + table + "_" + column + "_clob_before_update_trigger\n" +
                 "  BEFORE UPDATE\n" +
@@ -147,8 +143,6 @@ public class PostgreSQLLOCreateTriggerGen {
                 "$BODY$\n" +
                 "  LANGUAGE plpgsql VOLATILE;\n" +
                 "\n" +
-                "ALTER FUNCTION " + table + "_" + column + "_clob_after_update() OWNER TO postgres;\n" +
-                "\n" +
                 "CREATE TRIGGER " + table + "_" + column + "_clob_after_update_trigger\n" +
                 "  AFTER UPDATE\n" +
                 "  ON " + table + "\n" +
@@ -173,8 +167,6 @@ public class PostgreSQLLOCreateTriggerGen {
                 "end;\n" +
                 "$BODY$\n" +
                 "  LANGUAGE plpgsql VOLATILE;\n" +
-                "\n" +
-                "ALTER FUNCTION " + table + "_" + column + "_clob_after_delete() OWNER TO postgres;\n" +
                 "\n" +
                 "CREATE TRIGGER " + table + "_" + column + "_clob_after_delete_trigger\n" +
                 "  AFTER DELETE\n" +
@@ -207,8 +199,6 @@ public class PostgreSQLLOCreateTriggerGen {
                 "$BODY$\n" +
                 "  LANGUAGE plpgsql VOLATILE;\n" +
                 "\n" +
-                "ALTER FUNCTION " + identifier_prefix + "_unlink_after_update() OWNER TO postgres;\n" +
-                "\n" +
                 "CREATE TRIGGER " + identifier_prefix + "_unlink_after_update_trigger\n" +
                 "  AFTER UPDATE\n" +
                 "  ON " + table + "\n" +
@@ -239,8 +229,6 @@ public class PostgreSQLLOCreateTriggerGen {
                 "end;\n" +
                 "$BODY$\n" +
                 "  LANGUAGE plpgsql VOLATILE;\n" +
-                "\n" +
-                "ALTER FUNCTION " + identifier_prefix + "_unlink_after_delete() OWNER TO postgres;\n" +
                 "\n" +
                 "CREATE TRIGGER " + identifier_prefix + "_unlink_after_delete_trigger\n" +
                 "  AFTER DELETE\n" +

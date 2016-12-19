@@ -15,8 +15,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION booleanexpression_expression_clob_before_insert() OWNER TO postgres;
-
 CREATE TRIGGER booleanexpression_expression_clob_before_insert_trigger
   BEFORE INSERT
   ON booleanexpression
@@ -34,8 +32,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION booleanexpression_expression_clob_before_update() OWNER TO postgres;
 
 CREATE TRIGGER booleanexpression_expression_clob_before_update_trigger
   BEFORE UPDATE
@@ -55,8 +51,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION booleanexpression_expression_clob_after_update() OWNER TO postgres;
-
 CREATE TRIGGER booleanexpression_expression_clob_after_update_trigger
   AFTER UPDATE
   ON booleanexpression
@@ -74,8 +68,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION booleanexpression_expression_clob_after_delete() OWNER TO postgres;
 
 CREATE TRIGGER booleanexpression_expression_clob_after_delete_trigger
   AFTER DELETE
@@ -97,8 +89,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION email_header_body_clob_before_insert() OWNER TO postgres;
-
 CREATE TRIGGER email_header_body_clob_before_insert_trigger
   BEFORE INSERT
   ON email_header
@@ -116,8 +106,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION email_header_body_clob_before_update() OWNER TO postgres;
 
 CREATE TRIGGER email_header_body_clob_before_update_trigger
   BEFORE UPDATE
@@ -137,8 +125,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION email_header_body_clob_after_update() OWNER TO postgres;
-
 CREATE TRIGGER email_header_body_clob_after_update_trigger
   AFTER UPDATE
   ON email_header
@@ -156,8 +142,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION email_header_body_clob_after_delete() OWNER TO postgres;
 
 CREATE TRIGGER email_header_body_clob_after_delete_trigger
   AFTER DELETE
@@ -179,8 +163,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION i18ntext_text_clob_before_insert() OWNER TO postgres;
-
 CREATE TRIGGER i18ntext_text_clob_before_insert_trigger
   BEFORE INSERT
   ON i18ntext
@@ -198,8 +180,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION i18ntext_text_clob_before_update() OWNER TO postgres;
 
 CREATE TRIGGER i18ntext_text_clob_before_update_trigger
   BEFORE UPDATE
@@ -219,8 +199,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION i18ntext_text_clob_after_update() OWNER TO postgres;
-
 CREATE TRIGGER i18ntext_text_clob_after_update_trigger
   AFTER UPDATE
   ON i18ntext
@@ -238,8 +216,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION i18ntext_text_clob_after_delete() OWNER TO postgres;
 
 CREATE TRIGGER i18ntext_text_clob_after_delete_trigger
   AFTER DELETE
@@ -261,8 +237,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION task_comment_text_clob_before_insert() OWNER TO postgres;
-
 CREATE TRIGGER task_comment_text_clob_before_insert_trigger
   BEFORE INSERT
   ON task_comment
@@ -280,8 +254,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION task_comment_text_clob_before_update() OWNER TO postgres;
 
 CREATE TRIGGER task_comment_text_clob_before_update_trigger
   BEFORE UPDATE
@@ -301,8 +273,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION task_comment_text_clob_after_update() OWNER TO postgres;
-
 CREATE TRIGGER task_comment_text_clob_after_update_trigger
   AFTER UPDATE
   ON task_comment
@@ -320,8 +290,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION task_comment_text_clob_after_delete() OWNER TO postgres;
 
 CREATE TRIGGER task_comment_text_clob_after_delete_trigger
   AFTER DELETE
@@ -343,8 +311,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION querydefinitionstore_qexpression_clob_before_insert() OWNER TO postgres;
-
 CREATE TRIGGER querydefinitionstore_qexpression_clob_before_insert_trigger
   BEFORE INSERT
   ON querydefinitionstore
@@ -362,8 +328,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION querydefinitionstore_qexpression_clob_before_update() OWNER TO postgres;
 
 CREATE TRIGGER querydefinitionstore_qexpression_clob_before_update_trigger
   BEFORE UPDATE
@@ -383,8 +347,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION querydefinitionstore_qexpression_clob_after_update() OWNER TO postgres;
-
 CREATE TRIGGER querydefinitionstore_qexpression_clob_after_update_trigger
   AFTER UPDATE
   ON querydefinitionstore
@@ -402,8 +364,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION querydefinitionstore_qexpression_clob_after_delete() OWNER TO postgres;
 
 CREATE TRIGGER querydefinitionstore_qexpression_clob_after_delete_trigger
   AFTER DELETE
@@ -425,8 +385,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION deploymentstore_deploymentunit_clob_before_insert() OWNER TO postgres;
-
 CREATE TRIGGER deploymentstore_deploymentunit_clob_before_insert_trigger
   BEFORE INSERT
   ON deploymentstore
@@ -444,8 +402,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION deploymentstore_deploymentunit_clob_before_update() OWNER TO postgres;
 
 CREATE TRIGGER deploymentstore_deploymentunit_clob_before_update_trigger
   BEFORE UPDATE
@@ -465,8 +421,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION deploymentstore_deploymentunit_clob_after_update() OWNER TO postgres;
-
 CREATE TRIGGER deploymentstore_deploymentunit_clob_after_update_trigger
   AFTER UPDATE
   ON deploymentstore
@@ -484,8 +438,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION deploymentstore_deploymentunit_clob_after_delete() OWNER TO postgres;
 
 CREATE TRIGGER deploymentstore_deploymentunit_clob_after_delete_trigger
   AFTER DELETE

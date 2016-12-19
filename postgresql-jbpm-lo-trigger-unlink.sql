@@ -13,8 +13,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION content_content_unlink_after_update() OWNER TO postgres;
-
 CREATE TRIGGER content_content_unlink_after_update_trigger
   AFTER UPDATE
   ON content
@@ -32,8 +30,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION content_content_unlink_after_delete() OWNER TO postgres;
 
 CREATE TRIGGER content_content_unlink_after_delete_trigger
   AFTER DELETE
@@ -55,8 +51,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION processinstanceinfo_array_unlink_after_update() OWNER TO postgres;
-
 CREATE TRIGGER processinstanceinfo_array_unlink_after_update_trigger
   AFTER UPDATE
   ON processinstanceinfo
@@ -74,8 +68,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION processinstanceinfo_array_unlink_after_delete() OWNER TO postgres;
 
 CREATE TRIGGER processinstanceinfo_array_unlink_after_delete_trigger
   AFTER DELETE
@@ -97,8 +89,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION requestinfo_requestdata_unlink_after_update() OWNER TO postgres;
-
 CREATE TRIGGER requestinfo_requestdata_unlink_after_update_trigger
   AFTER UPDATE
   ON requestinfo
@@ -116,8 +106,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION requestinfo_requestdata_unlink_after_delete() OWNER TO postgres;
 
 CREATE TRIGGER requestinfo_requestdata_unlink_after_delete_trigger
   AFTER DELETE
@@ -139,8 +127,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION requestinfo_responsedata_unlink_after_update() OWNER TO postgres;
-
 CREATE TRIGGER requestinfo_responsedata_unlink_after_update_trigger
   AFTER UPDATE
   ON requestinfo
@@ -158,8 +144,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION requestinfo_responsedata_unlink_after_delete() OWNER TO postgres;
 
 CREATE TRIGGER requestinfo_responsedata_unlink_after_delete_trigger
   AFTER DELETE
@@ -181,8 +165,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION sessioninfo_rulesbytearray_unlink_after_update() OWNER TO postgres;
-
 CREATE TRIGGER sessioninfo_rulesbytearray_unlink_after_update_trigger
   AFTER UPDATE
   ON sessioninfo
@@ -200,8 +182,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION sessioninfo_rulesbytearray_unlink_after_delete() OWNER TO postgres;
 
 CREATE TRIGGER sessioninfo_rulesbytearray_unlink_after_delete_trigger
   AFTER DELETE
@@ -223,8 +203,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION workiteminfo_workitembytearray_unlink_after_update() OWNER TO postgres;
-
 CREATE TRIGGER workiteminfo_workitembytearray_unlink_after_update_trigger
   AFTER UPDATE
   ON workiteminfo
@@ -242,8 +220,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION workiteminfo_workitembytearray_unlink_after_delete() OWNER TO postgres;
 
 CREATE TRIGGER workiteminfo_workitembytearray_unlink_after_delete_trigger
   AFTER DELETE
@@ -265,8 +241,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION booleanexpression_expression_unlink_after_update() OWNER TO postgres;
-
 CREATE TRIGGER booleanexpression_expression_unlink_after_update_trigger
   AFTER UPDATE
   ON booleanexpression
@@ -284,8 +258,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION booleanexpression_expression_unlink_after_delete() OWNER TO postgres;
 
 CREATE TRIGGER booleanexpression_expression_unlink_after_delete_trigger
   AFTER DELETE
@@ -307,8 +279,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION email_header_body_unlink_after_update() OWNER TO postgres;
-
 CREATE TRIGGER email_header_body_unlink_after_update_trigger
   AFTER UPDATE
   ON email_header
@@ -326,8 +296,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION email_header_body_unlink_after_delete() OWNER TO postgres;
 
 CREATE TRIGGER email_header_body_unlink_after_delete_trigger
   AFTER DELETE
@@ -349,8 +317,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION i18ntext_text_unlink_after_update() OWNER TO postgres;
-
 CREATE TRIGGER i18ntext_text_unlink_after_update_trigger
   AFTER UPDATE
   ON i18ntext
@@ -368,8 +334,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION i18ntext_text_unlink_after_delete() OWNER TO postgres;
 
 CREATE TRIGGER i18ntext_text_unlink_after_delete_trigger
   AFTER DELETE
@@ -391,8 +355,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION task_comment_text_unlink_after_update() OWNER TO postgres;
-
 CREATE TRIGGER task_comment_text_unlink_after_update_trigger
   AFTER UPDATE
   ON task_comment
@@ -410,8 +372,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION task_comment_text_unlink_after_delete() OWNER TO postgres;
 
 CREATE TRIGGER task_comment_text_unlink_after_delete_trigger
   AFTER DELETE
@@ -433,8 +393,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION querydefinitionstore_qexpression_unlink_after_update() OWNER TO postgres;
-
 CREATE TRIGGER querydefinitionstore_qexpression_unlink_after_update_trigger
   AFTER UPDATE
   ON querydefinitionstore
@@ -452,8 +410,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION querydefinitionstore_qexpression_unlink_after_delete() OWNER TO postgres;
 
 CREATE TRIGGER querydefinitionstore_qexpression_unlink_after_delete_trigger
   AFTER DELETE
@@ -475,8 +431,6 @@ end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
 
-ALTER FUNCTION deploymentstore_deploymentunit_unlink_after_update() OWNER TO postgres;
-
 CREATE TRIGGER deploymentstore_deploymentunit_unlink_after_update_trigger
   AFTER UPDATE
   ON deploymentstore
@@ -494,8 +448,6 @@ begin
 end;
 $BODY$
   LANGUAGE plpgsql VOLATILE;
-
-ALTER FUNCTION deploymentstore_deploymentunit_unlink_after_delete() OWNER TO postgres;
 
 CREATE TRIGGER deploymentstore_deploymentunit_unlink_after_delete_trigger
   AFTER DELETE

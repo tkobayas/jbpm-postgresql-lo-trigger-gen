@@ -14,7 +14,7 @@ This trigger copies the jBPM CLOB references to 'jbpm_active_clob' table's oid c
 
 ## How to use
 
-1. Edit postgresql-jbpm-lo-trigger-clob.sql to replace the user "postgres" to meet your database user.
+1. Make sure that the database user which runs this script has TRIGGER privilege on BPMS tables and USAGE privilege on language plpgsql.
 
 2. Run script to create triggers. It also creates jbpm_active_clob table.
 

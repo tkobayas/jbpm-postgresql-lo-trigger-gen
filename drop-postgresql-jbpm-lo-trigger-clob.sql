@@ -1,3 +1,5 @@
+drop table jbpm_active_clob;
+
 -- booleanexpression.expression
 
 DROP TRIGGER booleanexpression_expression_clob_before_insert_trigger ON booleanexpression;

@@ -20,6 +20,8 @@ public class PostgreSQLLODropTriggerGen {
 
     private void generateScript() throws Exception {
 
+        sb.append( "drop table jbpm_active_clob;\n\n" );
+
         generatePerColumnForCLOB( "booleanexpression", "expression" );
         generatePerColumnForCLOB( "email_header", "body" );
         generatePerColumnForCLOB( "i18ntext", "text" );
