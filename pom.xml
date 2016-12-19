@@ -6,6 +6,6 @@
 
 	<groupId>com.redhat.gss.jbpm</groupId>
 	<artifactId>jbpm-postgresql-lo-trigger-gen</artifactId>
-	<version>1.2.2-SNAPSHOT</version>
+	<version>1.2.2</version>
 
 </project>
